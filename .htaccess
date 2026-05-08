@@ -1,0 +1,20 @@
+
+Options -Indexes
+
+# Apply global header/footer injection via PHP auto_prepend
+<IfModule mod_php7.c>
+    php_value auto_prepend_file "C:/Users/Admin/Downloads/xampp/htdocs/paghilom/bootstrap.php"
+</IfModule>
+<IfModule mod_php8.c>
+    php_value auto_prepend_file "C:/Users/Admin/Downloads/xampp/htdocs/paghilom/bootstrap.php"
+</IfModule>
+
+# Enable URL rewriting if hosted with Apache (optional)
+<IfModule mod_rewrite.c>
+RewriteEngine On
+# Serve existing files/directories directly
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+# Fallback to index.php
+RewriteRule . index.php [L]
+</IfModule>
